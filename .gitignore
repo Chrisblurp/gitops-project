@@ -1,7 +1,33 @@
+# OS
+.DS_Store
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 .env
+
+# Virtual environment
+venv/
+env/
+
+# Docker
+*.log
+
+# Terraform
 .terraform/
-terraform.tfstate
-terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# IDE
+.vscode/
+.idea/
+
+# Mac
 .DS_Store

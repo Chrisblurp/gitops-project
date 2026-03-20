@@ -25,15 +25,15 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-gitops-app:${{ github.run_number }} -f docker/Dockerfile .
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/gitops-project-app:${{ github.run_number }} .
 
     - name: Scan Image for Vulnerabilities
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: ${{ secrets.DOCKER_USERNAME }}/devops-gitops-app:${{ github.run_number }}
+        image-ref: ${{ secrets.DOCKER_USERNAME }}/gitops-project-app:${{ github.run_number }}
         format: table
         exit-code: 0
 
     - name: Push Docker Image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/devops-gitops-app:${{ github.run_number }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/gitops-project-app:${{ github.run_number }}

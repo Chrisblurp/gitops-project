@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gitops-app-green
+  labels:
+    app: gitops-app
+    version: green                    
 spec:
   replicas: 2
   selector:
@@ -19,3 +22,12 @@ spec:
         image: khrisblurp/gitops-project-app:1
         ports:
         - containerPort: 5050
+        env:
+        - name: APP_VERSION
+          value: "green"              
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5050
+          initialDelaySeconds: 5
+          periodSeconds: 10

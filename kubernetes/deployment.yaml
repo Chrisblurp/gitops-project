@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: gitops-app
-        image: jhon027/gitops-app-image:1.0
+        image: khrisblurp/gitops-project-app:1
         ports:
         - containerPort: 5050
         livenessProbe:

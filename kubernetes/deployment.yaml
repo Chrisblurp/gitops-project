@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gitops-app
-  labels:
+  labels: blue
     app: gitops-app
 spec:
   replicas: 2
@@ -11,7 +11,7 @@ spec:
       app: gitops-app
   template:
     metadata:
-      labels:
+      labels: blue
         app: gitops-app
     spec:
       containers:
